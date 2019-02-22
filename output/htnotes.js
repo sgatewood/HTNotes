@@ -40,7 +40,7 @@ $(function(){
 
 	$(".container").hide();
 	update();
-	$(".ground").children(".detach").hide();
+	$(".detach").hide();
 
 	// $(".node").not(".ground").mouseenter(function(){
 	// 	color = $(this).css("background-color");
@@ -67,25 +67,25 @@ $(function(){
 		});
 	});
 
-	$(".detach").click(function(event){
-		event.stopPropagation();
-		div = $(this).parent();
-		if(div.hasClass("ground")){
-			return
-		}
-		if(div.hasClass("topDog")){
-			div.removeClass("topDog");
-			$(".node").show();
-			$(".container").hide();
-			update();
-			$(".detach").text("Detach");
-		}else{
-			div.addClass("topDog");
-			container = div.next();
-			$(".container").not(container).not(div.parent()).hide();
-			$(".node").not(div).not(container.find(".node")).hide()
-			container.show();
-			$(this).text("Go to top");
-		}
-	});
+	// $(".detach").click(function(event){
+	// 	event.stopPropagation();
+	// 	div = $(this).parent();
+	// 	if(div.hasClass("ground")){
+	// 		return
+	// 	}
+	// 	if(div.hasClass("topDog")){
+	// 		div.removeClass("topDog");
+	// 		$(".node").show();
+	// 		$(".container").hide();
+	// 		update();
+	// 		$(".detach").text("Detach");
+	// 	}else{
+	// 		div.addClass("topDog");
+	// 		container = div.next();
+	// 		$(".container").not(container).not(div.parent()).hide();
+	// 		$(".node").not(div).not(container.find(".node")).hide()
+	// 		container.show();
+	// 		$(this).text("Go to top");
+	// 	}
+	// });
 });
