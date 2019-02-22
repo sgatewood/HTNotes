@@ -1,21 +1,23 @@
 import sys
 import re
 
-argc = len(sys.argv)
-if argc != 2:
-	print("Usage: htnotes.py file.htn")
-	exit()
+def get_filename():
+	argc = len(sys.argv)
+	if argc != 2:
+		print("Usage: htnotes.py file.htn")
+		exit()
 
-filename = sys.argv[1]
+	filename = sys.argv[1]
+	return filename
 
-with open(filename) as y:
-	lines = y.readlines()
+def get_lines(filename):
+	with open(filename) as y:
+		lines = y.readlines()
+	return lines
 
-out = open("out.html","w")
 def write(string):
 	# print(string)
 	print(string,file=out)
-
 
 def setup():
 	out = """
@@ -47,16 +49,22 @@ def print_div(line,tabs):
 	write(out)
 	# write("\t" * (tabs + 1) + "<div class='container' level='%r'>" %tabs)
 
-
-
-
-
-setup()
-for line in lines:
+def handle_line(line):
 	tabs = 0
 	while line[0] == "\t":
 		tabs += 1
 		line = line[1:]
 	print_div(line.strip(),tabs)
-teardown()
-out.close()
+
+def main():
+	setup()
+	filename = get_filename()
+	lines = get_lines(filename)
+	for line in lines:
+		handle_line(line)
+	teardown()
+
+if __name__ == "__main__":
+	out = open("out.html","w")
+	main()
+	out.close()
