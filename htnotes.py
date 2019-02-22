@@ -65,6 +65,6 @@ def main():
 	teardown()
 
 if __name__ == "__main__":
-	out = open("out.html","w")
+	out = open("output/a.html","w")
 	main()
 	out.close()
