@@ -39,7 +39,7 @@ colors = ["black","blue","green","brown"]
 last_tab_level = 0
 def print_div(line,tabs):
 	global last_tab_level
-	font_size = 50 - 7*tabs
+	font_size = 40 - 7*tabs
 	margin_left = tabs * 3
 	color = colors[tabs % len(colors)]
 	style = "font-size: %rpx;margin-left: %r%%;color: %s;" %(font_size,margin_left,color)
