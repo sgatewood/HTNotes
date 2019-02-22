@@ -38,18 +38,15 @@ def teardown():
 colors = ["black","blue","green","brown"]
 last_tab_level = 0
 def print_div(line,tabs):
+	global last_tab_level
 	font_size = 50 - 6*tabs
 	margin_left = tabs * 3
 	color = colors[tabs % len(colors)]
 	style = "font-size: %rpx;margin-left: %r%%;color: %s;" %(font_size,margin_left,color)
-	out = ("\t" * (tabs + 1)) + "<div class='node level-%r' style='%s'> %s </div>" %(tabs,style,line)
+	out = ("\t" * (tabs + 1)) + "<div class='node' level=%r style='%s'> %s </div>" %(tabs,style,line)
 	write(out)
-	write("<div class='container' level='%r'>" %tabs)
+	# write("\t" * (tabs + 1) + "<div class='container' level='%r'>" %tabs)
 
-	tab_level = tabs
-	while tabs <= last_tab_level:
-		write("</div><!--Level %r-->" %tabs)
-		tabs -= 1
 
 
 
