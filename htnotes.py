@@ -45,7 +45,8 @@ def print_div(line,tabs):
 	margin_left = tabs * 3
 	color = colors[tabs % len(colors)]
 	style = "font-size: %rpx;margin-left: %r%%;color: %s;" %(font_size,margin_left,color)
-	out = ("\t" * (tabs + 1)) + "<div class='node' level=%r style='%s'> %s </div>" %(tabs,style,line)
+	button = "<button class='detach' style='font-size:%rpx'>Detach</button>" %(font_size)
+	out = ("\t" * (tabs + 1)) + "<div class='node' level=%r style='%s'> %s %s </div>" %(tabs,style,line,button)
 	write(out)
 	# write("\t" * (tabs + 1) + "<div class='container' level='%r'>" %tabs)
 

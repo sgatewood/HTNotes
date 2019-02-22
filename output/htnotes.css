@@ -10,6 +10,10 @@
 	/* Todo: make it a color stored in the div */
 }
 
+.detach{
+	float: right;
+}
+
 body{
 	background-color: #dcdcdc;
 }

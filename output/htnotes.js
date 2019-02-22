@@ -40,6 +40,7 @@ $(function(){
 
 	$(".container").hide();
 	update();
+	$(".ground").children(".detach").hide();
 
 	// $(".node").not(".ground").mouseenter(function(){
 	// 	color = $(this).css("background-color");
@@ -53,9 +54,6 @@ $(function(){
 	// 	$(this).css("background-color", color);
 	// });
 
-
-
-
 	$(".node").click(function(){
 		submenu = $(this).next(".container");
 		if(submenu.is(":hidden")){
@@ -67,5 +65,27 @@ $(function(){
 		submenu.promise().done(function(){
 			update();
 		});
+	});
+
+	$(".detach").click(function(event){
+		event.stopPropagation();
+		div = $(this).parent();
+		if(div.hasClass("ground")){
+			return
+		}
+		if(div.hasClass("topDog")){
+			div.removeClass("topDog");
+			$(".node").show();
+			$(".container").hide();
+			update();
+			$(".detach").text("Detach");
+		}else{
+			div.addClass("topDog");
+			container = div.next();
+			$(".container").not(container).not(div.parent()).hide();
+			$(".node").not(div).not(container.find(".node")).hide()
+			container.show();
+			$(this).text("Go to top");
+		}
 	});
 });
