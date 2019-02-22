@@ -1,5 +1,5 @@
 .node{
-	border: 2px dotted black;
+	border: 3px solid black;
 	margin: 5px;
 	border-radius: 20px;
 	padding: 15px;
@@ -8,4 +8,8 @@
 .node:hover{
 	background-color: #bdffc3;
 	/* Todo: make it a color stored in the div */
+}
+
+body{
+	background-color: #dcdcdc;
 }
